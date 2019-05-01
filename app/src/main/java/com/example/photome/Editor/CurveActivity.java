@@ -1,5 +1,4 @@
 package com.example.photome.Editor;
 
-public class CompressImageActivity {
-
+public class CurveActivity {
 }

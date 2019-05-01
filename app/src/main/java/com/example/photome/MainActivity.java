@@ -6,9 +6,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Toolbar toolbar;
     BottomNavigationView navigationBar1;
@@ -23,10 +24,18 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setTitle("PhotoMe");
-        toolbar.setSubtitle("photo editor.");
 
         // Navigation bar
         navigationBar1 = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        View fileItem = (View) findViewById(R.id.action_filter);
+        fileItem.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(this, "fileter_click", Toast.LENGTH_SHORT).show();
+
     }
 
     //Add menu

@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">PhotoMe</string>
+    <string name="hello_text_view">Open source photo editor.</string>
 
     <!--Toolbar-->
     <string name="menu_batch">batch</string>
@@ -26,4 +27,6 @@
 
     <!--advance pthoto editor tools-->
     <string name="nav2_adv_"></string>
+    <string name="fn">FN</string>
+    <string name="todo">TODO</string>
 </resources>
