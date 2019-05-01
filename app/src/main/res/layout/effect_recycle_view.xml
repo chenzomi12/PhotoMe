@@ -3,44 +3,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="1dp">
+    android:layout_margin="3dp"
+    android:background="#000"
+    >
 
     <android.support.v7.widget.CardView
-        android:layout_width="55dp"
-        android:layout_height="75dp"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
         android:layout_centerInParent="true"
         android:background="#fff"
-        app:cardCornerRadius="0dp">
-        <!--app:cardElevation="1dp"-->
-        <!--app:cardMaxElevation="2dp"-->
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:cardMaxElevation="4dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/filter_image"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:id="@+id/effect_image"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="3dp"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/ic_launcher_background"
+                android:background="@drawable/ic_tool_example_48dp"
                 android:contentDescription="@string/todo"
                 android:scaleType="centerCrop" />
 
+
             <TextView
-                android:id="@+id/filter_name"
+                android:id="@+id/effect_name"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_below="@+id/filter_image"
+                android:layout_below="@+id/effect_image"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="3dp"
-                android:layout_marginBottom="3dp"
+                android:textSize="10sp"
                 android:autoSizeMaxTextSize="14sp"
-                android:autoSizeMinTextSize="8sp"
+                android:autoSizeMinTextSize="6sp"
                 android:autoSizeTextType="uniform"
                 android:gravity="center"
                 android:text="@string/fn"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimaryDark" />
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>

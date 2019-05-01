@@ -1,6 +1,8 @@
 package com.example.photome.UI;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,13 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.photome.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecyclerViewAdapter.ViewHolder> {
+
+public class EffectRecyclerViewAdapter extends RecyclerView.Adapter<EffectRecyclerViewAdapter.ViewHolder> {
 
     private static final String TAG = "FilterRecyclerViewAdapter";
 
@@ -24,15 +25,16 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
     private ItemClickListener mClickListener;
 
     private ArrayList<String> mNames = new ArrayList<>();
-    private ArrayList<String> mImgPaths = new ArrayList<>();
+    private ArrayList<Integer> mIconPaths = new ArrayList<>();
     private Context mContext;
-
+    private Resources mRes;
 
     // data is passed into the constructor
-    public FilterRecyclerViewAdapter(ArrayList<String> names, ArrayList<String> imgPaths, Context context) {
+    public EffectRecyclerViewAdapter(ArrayList<String> names, ArrayList<Integer> iconPaths, Resources res, Context context) {
         mNames = names;
-        mImgPaths = imgPaths;
+        mIconPaths = iconPaths;
         mContext = context;
+        mRes = res;
         this.mInflater = LayoutInflater.from(mContext);
 
     }
@@ -42,7 +44,7 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Log.d(TAG, "onCreateViewHolder called.");
 
-        View view = mInflater.inflate(R.layout.filter_recycle_view, parent, false);
+        View view = mInflater.inflate(R.layout.effect_recycle_view, parent, false);
         return new ViewHolder(view);
     }
 
@@ -52,11 +54,14 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
         Log.d(TAG, "onBindViewHolder called.");
 
         holder.myTextView.setText(mNames.get(position));
-
-        Glide.with(mContext).asBitmap().load(mImgPaths.get(position)).into(holder.myImageView);
+        try {
+            holder.myIconView.setBackground(Drawable.createFromXml(mRes, mRes.getXml(mIconPaths.get(position))));
+        } catch (Exception ex) {
+            Log.e("Error", "Exception loading drawable");
+        }
 
         // TODO: once on click the filter, the recording photo should change to the filter(position).
-        holder.myImageView.setOnClickListener(new View.OnClickListener() {
+        holder.myIconView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick click an filter:" + mNames.get(position));
@@ -74,13 +79,13 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        ImageView myImageView;
+        ImageView myIconView;
         TextView myTextView;
 
         ViewHolder(View itemView) {
             super(itemView);
-            myImageView = itemView.findViewById(R.id.filter_image);
-            myTextView = itemView.findViewById(R.id.filter_name);
+            myIconView = itemView.findViewById(R.id.effect_image);
+            myTextView = itemView.findViewById(R.id.effect_name);
 
             itemView.setOnClickListener(this);
         }
