@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_filter"
+        android:enabled="true"
+        android:icon="@drawable/ic_filter_none"
+        android:title="Filter"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_photo_basic"
+        android:enabled="true"
+        android:icon="@drawable/ic_panorama"
+        android:title="Baisc"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_photo_advance"
+        android:enabled="true"
+        android:icon="@drawable/ic_burst_mode"
+        android:title="Advance"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_save"
+        android:enabled="true"
+        android:icon="@drawable/ic_save_alt"
+        android:title="Save"
+        app:showAsAction="ifRoom" />
+
+</menu>

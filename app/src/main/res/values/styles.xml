@@ -1,11 +1,33 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="android:itemTextAppearance">@style/MyActionBar.MenuTextStyle</item>
+        <item name="android:itemBackground">@color/colorItemBackground</item>
+        <item name="android:actionButtonStyle">@style/myActionButtonStyle</item>
+        <item name="actionButtonStyle">@style/myActionButtonStyle</item>
+    </style>
+
+    <!--ActionBar background-->
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="background">@color/colorActionBarBackground</item>
+    </style>
+
+    <!--ActionBar text-->
+    <style name="MyActionBarTitle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/colorActionBarTitle</item>
+    </style>
+
+    <style name="MyActionBar.MenuTextStyle"
+        parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/colorActionBarTitle</item>
+    </style>
+
+    <style name="myActionButtonStyle" parent="Widget.AppCompat.ActionButton">
+        <item name="android:maxWidth">10dp</item>
+        <item name="android:maxHeight">10dp</item>
+        <item name="android:width">40dp</item>
     </style>
 
 </resources>

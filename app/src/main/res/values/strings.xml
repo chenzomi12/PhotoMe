@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">PhotoMe</string>
+
+    <!--Toolbar-->
+    <string name="menu_batch">batch</string>
+    <string name="menu_info">info</string>
+    <string name="menu_setting">Setting</string>
+    <string name="menu_tutorial">Tutorial</string>
+    <string name="menu_help">Help and Feedback</string>
+    <string name="menu_about">About Us</string>
+
+    <!--buttom bar-->
+    <string name="nav1_filter">Filter</string>
+    <string name="nav1_photo_basic">Basic</string>
+    <string name="nav1_photo_advance">Advance</string>
+    <string name="nav1_save">Save</string>
+
+    <!--basic photo editor tools-->
+    <string name="nav2_basic_light_effect">Light</string>
+    <string name="nav2_basic_curve">Curve</string>
+    <string name="nav2_basic_tone">Tone</string>
+    <string name="nav2_basic_crop">Crop</string>
+    <string name="nav2_basic_rotate">Rotate</string>
+    <string name="nav2_basic_details">Detail</string>
+    <string name="nav2_basic_HSL">HSL</string>
+
+    <!--advance pthoto editor tools-->
+    <string name="nav2_adv_"></string>
 </resources>

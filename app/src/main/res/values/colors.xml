@@ -3,4 +3,11 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="colorActionBarBackground">#FFFFFF</color>
+    <color name="colorActionBarTitle">#919191</color>
+    <color name="colorItemBackground">#FFFFFF</color>
+
+    <color name="colorNavIcon">#919191</color>
+    <color name="colorNavTitle">#919191</color>
 </resources>
