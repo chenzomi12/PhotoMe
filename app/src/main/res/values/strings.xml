@@ -7,7 +7,7 @@
     <string name="menu_info">info</string>
     <string name="menu_setting">Setting</string>
     <string name="menu_tutorial">Tutorial</string>
-    <string name="menu_help">Help and Feedback</string>
+    <string name="menu_feedback">Feedback</string>
     <string name="menu_about">About Us</string>
 
     <!--buttom bar-->
@@ -29,4 +29,18 @@
     <string name="nav2_adv_"></string>
     <string name="fn">FN</string>
     <string name="todo">TODO</string>
+
+    <!--Setting-->
+    <string name="pref_general_category_jpeg_quality">Format and Quality</string>
+    <string name="pref_general_title_jpeg_quality">Change Format and Quality</string>
+    <string name="pref_general_key_jpeg_quality">JEPG_quality</string>
+    <string name="pref_general_summary_jpeg_quality">Default 95%. Choose the format and quality rate that will be applied when exporting or sharing images. JPEG 100% will give the best JPEG image at the cost of increased file size.</string>
+
+    <string name="pref_general_category_photo_size">Change Max Photo Size</string>
+    <string name="pref_general_category_photo_resolution">Change Photo Resolution</string>
+    
+
+    <string name="pref_general_key_photo_resolution">Resolution</string>
+    <string name="pref_general_key_photo_size">Photo_size</string>
+
 </resources>

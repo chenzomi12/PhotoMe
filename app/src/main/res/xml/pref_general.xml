@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <PreferenceCategory android:title="@string/pref_general_category_photo_size">
+
+        <ListPreference
+            android:defaultValue="1"
+            android:key="@string/pref_general_key_jpeg_quality"
+            android:title="@string/pref_general_title_jpeg_quality"
+            android:dialogTitle="pref_general_category_photo_size"
+            android:entries="@array/pref_general_jpeg_quality"
+            android:entryValues="@array/pref_general_jpeg_quality_value"
+            >
+            <!--android:summary="@string/pref_general_summary_jpeg_quality"-->
+        </ListPreference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_general_category_jpeg_quality">
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

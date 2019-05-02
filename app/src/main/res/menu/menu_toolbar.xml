@@ -28,8 +28,8 @@
         android:orderInCategory="100"
         app:showAsAction="never"/>
     <item
-        android:id = "@+id/item_help"
-        android:title= "@string/menu_help"
+        android:id = "@+id/item_feedback"
+        android:title= "@string/menu_feedback"
         android:orderInCategory="100"
         app:showAsAction="never"/>
     <item

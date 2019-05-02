@@ -1,9 +1,11 @@
 package com.example.photome;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,11 +17,17 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.photome.Editor.Constants;
+import com.example.photome.Others.AboutUsActivity;
+import com.example.photome.Others.FeedbackActivity;
+import com.example.photome.Others.SettingActivity;
+import com.example.photome.Others.TutorialActivity;
 import com.example.photome.UI.FilterRecyclerViewAdapter;
 import com.example.photome.UI.EffectRecyclerViewAdapter;
 
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "MainActivity";
@@ -38,9 +46,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         // Toolbar
-        toolbar =(Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         getSupportActionBar().setTitle("PhotoMe");
 
@@ -70,24 +80,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // TODO: change the Toast to its signal Activity.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = null;
+
         switch (item.getItemId()) {
             case R.id.item_setting:
-                Toast.makeText(this, "setting", Toast.LENGTH_SHORT).show();
-                break;
+                intent = new Intent(this, SettingActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.item_tutorial:
-                Toast.makeText(this, "tutorial", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.item_help:
-                Toast.makeText(this, "help", Toast.LENGTH_SHORT).show();
-                break;
+                intent = new Intent(this, TutorialActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.item_feedback:
+                intent = new Intent(this, FeedbackActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.item_about:
-                Toast.makeText(this, "about", Toast.LENGTH_SHORT).show();
-                break;
+                intent = new Intent(this, AboutUsActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return true;
     }
 
-    private void initImageBitmap(){
+    private void initImageBitmap() {
         Log.d(TAG, "initImageBitmap for testing the filter recycle view.");
 
         mImgPaths.add(String.valueOf(R.drawable.filter_sample));
@@ -108,8 +125,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initRecycleView();
     }
 
-    private void initRecycleView(){
-    Log.d(TAG, "initRecycleView");
+    private void initRecycleView() {
+        Log.d(TAG, "initRecycleView");
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         RecyclerView recycleView = findViewById(R.id.filter_recycle_view);
@@ -119,32 +136,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    private void initEffctIcon(){
+    private void initEffctIcon() {
         Log.d(TAG, "initImageBitmap for testing the filter recycle view.");
 
-        mIconPaths.add(R.drawable.ic_burst_mode);
-        mIconNames.add("色调对比度");
-        mIconPaths.add(R.drawable.ic_burst_mode);
-        mIconNames.add("色调对比度");
-        mIconPaths.add(R.drawable.ic_burst_mode);
-        mIconNames.add("色调对比度");
-        mIconPaths.add(R.drawable.ic_burst_mode);
-        mIconNames.add("色调对比度");
-        mIconPaths.add(R.drawable.ic_burst_mode);
-        mIconNames.add("色调对比度");
-        mIconPaths.add(R.drawable.ic_burst_mode);
-        mIconNames.add("色调对比度");
-        mIconPaths.add(R.drawable.ic_burst_mode);
-        mIconNames.add("色调对比度");
-        mIconPaths.add(R.drawable.ic_burst_mode);
-        mIconNames.add("色调对比度");
-        mIconPaths.add(R.drawable.ic_burst_mode);
-        mIconNames.add("色调对比度");
+        Constants editorConstants = new Constants();
+        mIconNames = editorConstants.getBasicEffectToolsName();
+        mIconPaths = editorConstants.getBasicEffectToolArray();
 
         initGridRecycleView();
     }
 
-    private void initGridRecycleView(){
+    private void initGridRecycleView() {
         Log.d(TAG, "initGridRecycleView");
 
         Resources res = getResources();

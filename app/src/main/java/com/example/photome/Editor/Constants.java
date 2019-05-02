@@ -10,19 +10,22 @@ import java.util.Map;
 
 /**
  * Create by zomi. 2019.5.2
+ * Update by zomi. 2019.5.3
  * This class is store the tools filter icons and its name.
  */
-public class Constant {
+public class Constants {
     private static final String TAG = "Editor Constant";
 
     ArrayList<Integer> mBasicEffectToolsIcon;
     ArrayList<Integer> mAdvanceEffectToolsIcon;
     ArrayList<String> mBasicEffectToolsName;
     ArrayList<String> mAdvanceEffectToolsName;
-    Map<String, Integer> mMapBasicTool;
-    Map<String, Integer> mMapAdvanceTool;
+
+    Map<String, Integer> mMapBasicTools;
+    Map<String, Integer> mMapAdvanceTools;
 
     private void setBasicEffectToolArray() {
+        mBasicEffectToolsIcon = new ArrayList<Integer>();
         // 调整
         mBasicEffectToolsIcon.add(R.drawable.ic_light_24);// 光效
         mBasicEffectToolsIcon.add(R.drawable.ic_curve_24);// 曲线
@@ -37,6 +40,7 @@ public class Constant {
     ;
 
     private void setBasicEffectToolsName() {
+        mBasicEffectToolsName = new ArrayList<String>();
         // 调整
         mBasicEffectToolsName.add("Light");// 光效
         mBasicEffectToolsName.add("Curve");// 曲线
@@ -49,6 +53,7 @@ public class Constant {
     }
 
     private void setAdvanceEffectToolArray() {
+        mAdvanceEffectToolsIcon = new ArrayList<Integer>();
         // 特效
         mAdvanceEffectToolsIcon.add(R.drawable.ic_diamond_24);// 光晕
         mAdvanceEffectToolsIcon.add(R.drawable.ic_blur_24);// 模糊
@@ -60,11 +65,13 @@ public class Constant {
         mAdvanceEffectToolsIcon.add(R.drawable.ic_pixel_24);// 像素化
         mAdvanceEffectToolsIcon.add(R.drawable.ic_exposure_24);// 双重曝光
         mAdvanceEffectToolsIcon.add(R.drawable.ic_face_24);// 人脸识别
+        mAdvanceEffectToolsIcon.add(R.drawable.ic_compress_24);// 压缩
     }
 
     ;
 
     private void setAdvanceEffectToolsName() {
+        mAdvanceEffectToolsName = new ArrayList<String>();
         // 特效
         mAdvanceEffectToolsName.add("Halo");// 光晕
         mAdvanceEffectToolsName.add("Blur");// 模糊
@@ -76,6 +83,7 @@ public class Constant {
         mAdvanceEffectToolsName.add("Pixelated");// 像素化
         mAdvanceEffectToolsName.add("Double exposure");// 双重曝光
         mAdvanceEffectToolsName.add("Face recognition");// 人脸识别
+        mAdvanceEffectToolsName.add("Compress");// 压缩
     }
 
     /**
@@ -123,23 +131,23 @@ public class Constant {
     public Map<String, Integer> getMapBasicTool() {
         if (mBasicEffectToolsIcon.size() == mBasicEffectToolsName.size()) {
             for (int i = 0; i < mBasicEffectToolsIcon.size(); i++) {
-                mMapBasicTool.put(mBasicEffectToolsName.get(i), mBasicEffectToolsIcon.get(i));
+                mMapBasicTools.put(mBasicEffectToolsName.get(i), mBasicEffectToolsIcon.get(i));
             }
         } else {
             Log.e(TAG, "empty effect tool.");
         }
-        return mMapBasicTool;
+        return mMapBasicTools;
     }
 
 
     public Map<String, Integer> getMapAdvanceTool() {
         if (mAdvanceEffectToolsIcon.size() == mAdvanceEffectToolsName.size()) {
             for (int i = 0; i < mAdvanceEffectToolsIcon.size(); i++) {
-                mMapAdvanceTool.put(mAdvanceEffectToolsName.get(i), mAdvanceEffectToolsIcon.get(i));
+                mMapAdvanceTools.put(mAdvanceEffectToolsName.get(i), mAdvanceEffectToolsIcon.get(i));
             }
         } else {
             Log.e(TAG, "empty effect tool.");
         }
-        return mMapAdvanceTool;
+        return mMapAdvanceTools;
     }
 }

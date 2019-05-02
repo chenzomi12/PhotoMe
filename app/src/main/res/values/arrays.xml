@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--setting-->
+    <string-array name="pref_general_jpeg_quality">
+        <item>JPG 100%</item>
+        <item>JPG 95%</item>
+        <item>JPG 80%</item>
+        <item>JPG 60%</item>
+    </string-array>
+    <string-array name="pref_general_jpeg_quality_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
 
 </resources>

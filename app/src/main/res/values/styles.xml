@@ -25,8 +25,8 @@
     </style>
 
     <style name="myActionButtonStyle" parent="Widget.AppCompat.ActionButton">
-        <item name="android:maxWidth">10dp</item>
-        <item name="android:maxHeight">10dp</item>
+        <item name="android:maxWidth">24dp</item>
+        <item name="android:maxHeight">24dp</item>
         <item name="android:width">40dp</item>
     </style>
 
