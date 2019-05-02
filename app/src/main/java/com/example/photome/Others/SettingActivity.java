@@ -9,7 +9,11 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.example.photome.R;
 
@@ -37,6 +41,11 @@ public class SettingActivity extends AppCompatPreferenceActivity {
 
         // load settings fragment
         getFragmentManager().beginTransaction().replace(android.R.id.content, new MainPreferenceFragment()).commit();
+
+        int horizontalMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
+        int verticalMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
+//        int topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (int) getResources().getDimension( R..activity_vertical_margin + 30, getResources().getDisplayMetrics());
+        getListView().setPadding(0, 100, 10, 0);
     }
 
     /**
@@ -46,6 +55,7 @@ public class SettingActivity extends AppCompatPreferenceActivity {
     public static class MainPreferenceFragment extends PreferenceFragment {
         @Override
         public void onCreate(final Bundle savedInstanceState) {
+
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_general);
 
@@ -53,10 +63,11 @@ public class SettingActivity extends AppCompatPreferenceActivity {
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
             // guidelines.
-            bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_general_key_jpeg_quality)));
+//            bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_general_key_jpeg_quality)));
 
         }
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -123,9 +134,22 @@ public class SettingActivity extends AppCompatPreferenceActivity {
      */
     private void setupActionBar() {
         ActionBar actionBar = getSupportActionBar();
+
         if (actionBar != null) {
             // Show the Up button in the action bar.
             actionBar.setDisplayHomeAsUpEnabled(true);
+        } else {
+            getLayoutInflater().inflate(R.layout.activity_settings, (ViewGroup) findViewById(android.R.id.content));
+            Toolbar toolbar = (Toolbar) findViewById(R.id.settings_toolbar);
+            setSupportActionBar(toolbar);
+
+            actionBar = getSupportActionBar();
+            if (actionBar != null) {
+                // Show the Up button in the action bar.
+                actionBar.setDisplayHomeAsUpEnabled(true);
+            }
         }
     }
+
+
 }

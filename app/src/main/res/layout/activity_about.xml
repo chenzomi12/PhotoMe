@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -10,38 +12,132 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp"
+        android:background="@color/colorToolBarBackground"
+        android:elevation="2dp"
         android:minHeight="?attr/actionBarSize" />
 
-    <ImageView
-        android:id="@+id/wearable_logo"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/authors"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:contentDescription=""
-        android:src="@mipmap/ic_launcher" />
+        android:layout_marginTop="56dp"
+        android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/wearable_logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="15dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/logo"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/about_us_logo" />
 
-    <TextView
-        android:id="@+id/authors"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:gravity="center"
-        android:text="authors"
-        android:textAppearance="@android:style/TextAppearance.Medium" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/authors"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="lab"
-        android:textSize="15sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
+                <!--Believe-->
+                <TextView
+                    android:id="@+id/text_believe_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text="@string/activity_about_believe_title"
+                    android:textAppearance="@android:style/TextAppearance.Medium"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/text_believe_summary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="left"
+                    android:text="@string/activity_about_believe_summary"
+                    android:textSize="12sp" />
+
+                <!--team-->
+                <TextView
+                    android:id="@+id/text_team_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="@string/activity_about_team_title"
+
+                    android:textAppearance="@android:style/TextAppearance.Medium"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/text_team_summary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="left"
+                    android:text="@string/activity_about_team_summary"
+                    android:textSize="12sp" />
+
+                <!--position-->
+                <TextView
+                    android:id="@+id/text_position_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="@string/activity_about_position_title"
+
+                    android:textAppearance="@android:style/TextAppearance.Medium"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/text_position_summary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="left"
+                    android:text="@string/activity_about_position_summary"
+                    android:textSize="12sp" />
+
+                <!--history-->
+                <TextView
+                    android:id="@+id/text_history_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="@string/activity_about_history_title"
+
+                    android:textAppearance="@android:style/TextAppearance.Medium"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/text_history_summary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="left"
+                    android:text="@string/activity_about_history_summary"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
 </RelativeLayout>

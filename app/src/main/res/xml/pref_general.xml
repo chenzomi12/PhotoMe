@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-
-
-    <PreferenceCategory android:title="@string/pref_general_category_photo_size">
-
+    <PreferenceCategory android:title="@string/pref_general_title">
         <ListPreference
             android:defaultValue="1"
-            android:key="@string/pref_general_key_jpeg_quality"
-            android:title="@string/pref_general_title_jpeg_quality"
-            android:dialogTitle="pref_general_category_photo_size"
+            android:dialogTitle="@string/pref_general_category_jpeg_quality"
             android:entries="@array/pref_general_jpeg_quality"
             android:entryValues="@array/pref_general_jpeg_quality_value"
-            >
-            <!--android:summary="@string/pref_general_summary_jpeg_quality"-->
-        </ListPreference>
+            android:key="@string/pref_general_key_jpeg_quality"
+            android:summary="@string/pref_general_summary_jpeg_quality"
+            android:title="@string/pref_general_title_jpeg_quality"></ListPreference>
+
+        <ListPreference
+            android:defaultValue="0"
+            android:dialogTitle="@string/pref_general_category_photo_size"
+            android:entries="@array/pref_general_photo_size"
+            android:entryValues="@array/pref_general_photo_size_value"
+            android:key="@string/pref_general_key_photo_size"
+            android:summary="@string/pref_general_summary_photo_size"
+            android:title="@string/pref_general_title_photo_size"></ListPreference>
+
+        <ListPreference
+            android:defaultValue="0"
+            android:dialogTitle="@string/pref_general_category_photo_resolution"
+            android:entries="@array/pref_general_photo_resolution"
+            android:entryValues="@array/pref_general_photo_resolution_value"
+            android:key="@string/pref_general_key_photo_resolution"
+            android:summary="@string/pref_general_summary_photo_resolution"
+            android:title="@string/pref_general_title_photo_resolution"></ListPreference>
     </PreferenceCategory>
-
-    <PreferenceCategory android:title="@string/pref_general_category_jpeg_quality">
-
-    </PreferenceCategory>
-
 
 </PreferenceScreen>

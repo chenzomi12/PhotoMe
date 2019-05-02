@@ -2,6 +2,7 @@
 <resources>
 
     <!--setting-->
+    <!--JPG 100%, JPG 95%, JPG 80%, JPG 60%-->
     <string-array name="pref_general_jpeg_quality">
         <item>JPG 100%</item>
         <item>JPG 95%</item>
@@ -13,6 +14,42 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+    </string-array>
+
+    <!-- 4000, 2000, 1920, 1366, 800,400, 0-->
+    <string-array name="pref_general_photo_size">
+        <item>Donot resize</item>
+        <item>4000 px</item>
+        <item>2000 px</item>
+        <item>1920 px</item>
+        <item>1366 px</item>
+        <item>800 px</item>
+        <item>400 px</item>
+    </string-array>
+    <string-array name="pref_general_photo_size_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <!--PPI 72, PPI150, PPI 300, PPI 450.-->
+    <string-array name="pref_general_photo_resolution">
+        <item>Donot change</item>
+        <item>72 PPI</item>
+        <item>150 PPI</item>
+        <item>300 PPI</item>
+        <item>450 PPI</item>
+    </string-array>
+    <string-array name="pref_general_photo_resolution_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 
 

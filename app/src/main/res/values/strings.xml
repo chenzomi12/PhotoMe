@@ -31,16 +31,61 @@
     <string name="todo">TODO</string>
 
     <!--Setting-->
+    <string name="pref_general_title">Exporting options</string>
+
     <string name="pref_general_category_jpeg_quality">Format and Quality</string>
-    <string name="pref_general_title_jpeg_quality">Change Format and Quality</string>
-    <string name="pref_general_key_jpeg_quality">JEPG_quality</string>
-    <string name="pref_general_summary_jpeg_quality">Default 95%. Choose the format and quality rate that will be applied when exporting or sharing images. JPEG 100% will give the best JPEG image at the cost of increased file size.</string>
+    <string name="pref_general_title_jpeg_quality">Format and Quality</string>
+    <string name="pref_general_key_jpeg_quality">format_quality</string>
+    <string name="pref_general_summary_jpeg_quality">Default 95%%. \n\nChoose the format and quality
+        rate that will be applied when exporting or sharing images. JPEG 100 will give the best JPEG
+        image at the cost of increased file size.</string>
 
-    <string name="pref_general_category_photo_size">Change Max Photo Size</string>
-    <string name="pref_general_category_photo_resolution">Change Photo Resolution</string>
-    
+    <string name="pref_general_category_photo_size">Photo sizing</string>
+    <string name="pref_general_key_photo_size">photo_sizing</string>
+    <string name="pref_general_title_photo_size">Photo sizing</string>
+    <string name="pref_general_summary_photo_size">Default do not resize.\n\nChoose the maximum
+    photo for exporting and sharing. The sizes given refer to the long edge of the image and would
+        only apply to images larger than the selected value. Smaller images will not be enlarged.</string>
 
-    <string name="pref_general_key_photo_resolution">Resolution</string>
-    <string name="pref_general_key_photo_size">Photo_size</string>
+    <string name="pref_general_category_photo_resolution">Resolution</string>
+    <string name="pref_general_key_photo_resolution">resolution</string>
+    <string name="pref_general_title_photo_resolution">Resolution</string>
+    <string name="pref_general_summary_photo_resolution">Default do not change.\n\nImage resolution
+        is the detail an image holds. The term applies to raster digital images, film images, and
+        other types of images. Higher resolution means more image detail.</string>
+
+    <!--about us-->
+    <string name="logo">logo</string>
+
+    <string name="activity_about_believe_title">BELIEVE</string>
+    <string name="activity_about_believe_summary">
+        Our belief is creativity at its essence requires the right tool.</string>
+
+    <string name="activity_about_team_title">OUR TEAM</string>
+    <string name="activity_about_team_summary">
+        Our team is made up of the brightest and most
+        dedicated designers, software engineers, and strategists in the world.</string>
+
+    <string name="activity_about_position_title">CONTACT US</string>
+    <string name="activity_about_position_summary">
+        App Press is headquartered in Indianapolis,
+        Indiana. Our offices are near downtown on South Meridian next to Lucas Oil Stadium.
+        Let us know if you are in the neighborhood - we love meeting customers! If you are interested
+        in joining our team, fill out our contact us form and tell us a little about yourself.\n
+        App Press\n
+        525 S Meridian Street, Suite 3A2\n
+        Indianapolis, IN 46225\n
+        Phone: +1 866-493-9383\n
+        Sales Inquiries: sales@app-press.com\n
+        Other Inquiries: info@app-press.com</string>
+
+    <string name="activity_about_history_title">HISTORY</string>
+    <string name="activity_about_history_summary">
+        We create tools for anyone to design and publish custom mobile apps.
+        Over the last couple of years, our team has built our platform using the latest web
+        technologies. We are based in Indianapolis and funded by Elevate Venture,
+        VisionTech and people that love us.</string>
+
+    <!--FEEDBACK-->
 
 </resources>

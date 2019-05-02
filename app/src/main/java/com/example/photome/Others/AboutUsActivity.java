@@ -12,6 +12,7 @@ import com.example.photome.R;
 
 /**
  * create by zomi. 2019.5.2
+ * TODO: activity_about.xml does not show the logo iamge anyway. should fit it.
  */
 public class AboutUsActivity extends AppCompatActivity {
 
