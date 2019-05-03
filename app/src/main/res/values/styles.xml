@@ -29,4 +29,22 @@
         <item name="android:width">40dp</item>
     </style>
 
+    <!--MainActivity View Bar-->
+    <style name="MainBottomBarView" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="MainBottomBarView.Active" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <!--Gallery View Bar-->
+    <style name="GalleryBottomBarView" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="GalleryBottomBarView.Active" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">10sp</item>
+    </style>
+
 </resources>

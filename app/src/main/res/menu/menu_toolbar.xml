@@ -6,14 +6,14 @@
         android:id="@+id/item_batch"
         android:title="@string/menu_batch"
         android:orderInCategory="100"
-        android:icon="@drawable/ic_add_photo"
+        android:icon="@drawable/ic_toolbar_add_photo_24"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/item_info"
         android:title="@string/menu_info"
         android:orderInCategory="100"
-        android:icon="@drawable/ic_info"
+        android:icon="@drawable/ic_toolbar_info_24"
         app:showAsAction="always" />
 
     <item

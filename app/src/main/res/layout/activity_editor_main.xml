@@ -19,37 +19,43 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryBackground"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/open_gallery_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/ic_open_gallery_logo" />
-
+            android:layout_height="200dp">
 
             <TextView
                 android:id="@+id/filter_items"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/open_gallery_icon"
-                android:layout_centerHorizontal="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/hello_text_view"
-                android:textAppearance="@android:style/TextAppearance.Medium"
-                android:textSize="12sp" />
+                android:text="@string/hello_text_view" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/filter_recycle_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/effect_recycle_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 
 
-        </RelativeLayout>
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -62,8 +68,6 @@
         android:layout_marginBottom="0dp"
         app:itemBackground="@android:color/white"
         app:itemIconTint="@color/colorNavIcon"
-        app:itemTextAppearanceActive="@style/MainBottomBarView.Active"
-        app:itemTextAppearanceInactive="@style/MainBottomBarView"
         app:itemTextColor="@color/colorNavIcon"
         app:menu="@menu/bottom_nav_menu" />
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/item_gallery_all"
+        android:enabled="true"
+        android:icon="@drawable/ic_gallery_image_all_24"
+        android:title="All Photo"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/item_gallery_album"
+        android:enabled="true"
+        android:icon="@drawable/ic_gallery_album_24"
+        android:title="Album"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/item_gallery_moment"
+        android:enabled="true"
+        android:icon="@drawable/ic_gallery_moment_24"
+        android:title="Moment"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/item_gallery_discover"
+        android:enabled="true"
+        android:icon="@drawable/ic_gallery_discovery_24"
+        android:title="Favourite"
+        app:showAsAction="always" />
+
+</menu>

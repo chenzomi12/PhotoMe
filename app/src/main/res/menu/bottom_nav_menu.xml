@@ -5,29 +5,29 @@
     <item
         android:id="@+id/action_filter"
         android:enabled="true"
-        android:icon="@drawable/ic_filter_none"
+        android:icon="@drawable/ic_bottom_filter_none_24"
         android:title="Filter"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/action_photo_basic"
         android:enabled="true"
-        android:icon="@drawable/ic_panorama"
-        android:title="Baisc"
-        app:showAsAction="ifRoom" />
+        android:icon="@drawable/ic_bottom_panorama_24"
+        android:title="Basic"
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/action_photo_advance"
         android:enabled="true"
-        android:icon="@drawable/ic_burst_mode"
+        android:icon="@drawable/ic_bottom_burst_mode_24"
         android:title="Advance"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/action_save"
         android:enabled="true"
-        android:icon="@drawable/ic_save_alt"
+        android:icon="@drawable/ic_bottom_save_alt_24"
         android:title="Save"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
 </menu>
