@@ -2,11 +2,12 @@ package com.example.photome.Gallery;
 
 import android.provider.MediaStore;
 
+
 public class Constants {
 
-    public int showPhotoSize = 1024 * 5;
+    public int showPhotoSize = 1024 * 5;// sizeof 5K
 
-    final String[] IMAGE_PROJECTION = {
+    public final String[] IMAGE_PROJECTION = {
             MediaStore.Images.Media.DATA,
             MediaStore.Images.Media.DISPLAY_NAME,
             MediaStore.Images.Media.DATE_ADDED,

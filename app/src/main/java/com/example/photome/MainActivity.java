@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.photome.Gallery.GalleryMainActivity;
 import com.example.photome.Others.AboutUsActivity;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "Going to Gallery ...", Toast.LENGTH_SHORT).show();
                 mIntent = new Intent(MainActivity.this, GalleryMainActivity.class);
                 startActivity(mIntent);
                 MainActivity.this.finish();

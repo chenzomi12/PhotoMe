@@ -17,6 +17,9 @@ import com.example.photome.Utils.ScreenUtils;
 
 import java.util.List;
 
+/**
+ * update by zomi. 2019.5.4: Fix bug final position onClick.
+ */
 public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> {
 
     private final static String TAG = PhotoAdapter.class.getSimpleName();
@@ -26,6 +29,8 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> 
     private LayoutInflater mLayoutInflater;
     private List<PhotoInfo> photoInfoList;
     private GlideImageLoader mImageLoader;
+
+    private OnClickListener onClickListener;
 
     public PhotoAdapter(Context context, List<PhotoInfo> photoInfoList) {
         mLayoutInflater = LayoutInflater.from(context);
@@ -51,18 +56,34 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         mImageLoader.displayImage(mActivity,
                 mContext,
                 photoInfoList.get(position).path,
                 holder.photoImage,
-                ScreenUtils.getScreenWidth(mContext),
-                ScreenUtils.getScreenWidth(mContext));
+                ScreenUtils.getScreenWidth(mContext)/5,
+                ScreenUtils.getScreenWidth(mContext)/5);
 
+        // active the holder clickable
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickListener.onClick(photoInfoList.get(position));
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return photoInfoList.size();
+    }
+
+
+    public interface OnClickListener {
+        void onClick(PhotoInfo photoInfo);
+    }
+
+    public void setOnClickListener(OnClickListener onClickListener) {
+        this.onClickListener = onClickListener;
     }
 }

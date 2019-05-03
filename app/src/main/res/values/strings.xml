@@ -96,4 +96,8 @@
     <string name="gallery_photo_num">%d</string>
     <string name="gallery_all_images">All Images</string>
 
+    <!--EDITOR-->
+    <string name="editor_name">Editor</string>
+
+
 </resources>

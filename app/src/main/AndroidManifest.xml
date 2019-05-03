@@ -67,6 +67,14 @@
             android:parentActivityName=".Gallery.GalleryMainActivity"
             android:screenOrientation="portrait" />
 
+        <!--EDITOR-->
+        <activity
+            android:name=".Editor.EditorMainActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/editor_name"
+            android:screenOrientation="portrait" />
+
+
     </application>
 
 </manifest>

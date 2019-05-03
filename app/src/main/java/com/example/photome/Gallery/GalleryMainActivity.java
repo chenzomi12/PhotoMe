@@ -6,18 +6,15 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.photome.Gallery.adapters.FolderAdapter;
 import com.example.photome.Gallery.utils.FolderInfo;
 import com.example.photome.Gallery.utils.PhotoInfo;
-import com.example.photome.Others.SettingActivity;
 import com.example.photome.R;
 
 import java.io.File;
@@ -39,6 +36,7 @@ public class GalleryMainActivity extends BaseActivity {
     private Context mContext;
     private Activity mActivity;
     private FolderAdapter mFolderAdapter;
+    private Constants mConstants;
 
     private boolean hasFolderScan = false;
     private List<FolderInfo> folderInfoList = new ArrayList<>(); // save local folder info
@@ -51,6 +49,7 @@ public class GalleryMainActivity extends BaseActivity {
 
         mContext = this;
         mActivity = this;
+        mConstants = new Constants();
         setContentView(R.layout.gallery_main_activity);
 
         initToolbar();
@@ -69,13 +68,6 @@ public class GalleryMainActivity extends BaseActivity {
     public void initFolder() {
         Cursor cur;
         Uri uri;
-        final String[] IMAGE_PROJECTION = {
-                MediaStore.Images.Media.DATA,
-                MediaStore.Images.Media.DISPLAY_NAME,
-                MediaStore.Images.Media.DATE_ADDED,
-                MediaStore.Images.Media._ID,
-                MediaStore.Images.Media.SIZE,
-        };
 
         uri = android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
 
@@ -91,10 +83,10 @@ public class GalleryMainActivity extends BaseActivity {
         // }
 
         cur = getContentResolver().query(uri,
-                IMAGE_PROJECTION,
+                mConstants.IMAGE_PROJECTION,
                 null,
                 null,
-                IMAGE_PROJECTION[2] + " DESC");
+                mConstants.IMAGE_PROJECTION[2] + " DESC");
 
         if (cur != null) {
             int count = cur.getCount();
@@ -102,12 +94,14 @@ public class GalleryMainActivity extends BaseActivity {
                 List<PhotoInfo> tempPhotoList = new ArrayList<>();
                 cur.moveToFirst();
                 do {
-                    String path = cur.getString(cur.getColumnIndexOrThrow(IMAGE_PROJECTION[0]));
-                    String name = cur.getString(cur.getColumnIndexOrThrow(IMAGE_PROJECTION[1]));
-                    long dateTime = cur.getLong(cur.getColumnIndexOrThrow(IMAGE_PROJECTION[2]));
-                    int size = cur.getInt(cur.getColumnIndexOrThrow(IMAGE_PROJECTION[4]));
-                    boolean showFlag = size > 1024 * 5;
+                    String path = cur.getString(cur.getColumnIndexOrThrow(mConstants.IMAGE_PROJECTION[0]));
+                    String name = cur.getString(cur.getColumnIndexOrThrow(mConstants.IMAGE_PROJECTION[1]));
+                    long dateTime = cur.getLong(cur.getColumnIndexOrThrow(mConstants.IMAGE_PROJECTION[2]));
+                    int size = cur.getInt(cur.getColumnIndexOrThrow(mConstants.IMAGE_PROJECTION[4]));
                     PhotoInfo photoInfo = new PhotoInfo(path, name, dateTime);
+
+                    // filter size to show.
+                    boolean showFlag = size > mConstants.showPhotoSize;
                     if (showFlag) {
                         tempPhotoList.add(photoInfo);
                     }
@@ -155,8 +149,8 @@ public class GalleryMainActivity extends BaseActivity {
                 if (folderInfo == null) {
                     // Toast.makeText(mContext, "FolderInfo null", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(mContext, GalleryPhotosActivity.class);
-                    intent.putExtra("EXTRA_NAME", R.string.gallery_all_images);
-                    intent.putExtra("EXTRA_PATH", folderInfo.path);
+                    intent.putExtra("EXTRA_NAME", getString(R.string.gallery_all_images));
+                    intent.putExtra("EXTRA_PATH", "null");
                     startActivity(intent);
                 } else {
                     // Toast.makeText(mContext, "FolderInfo: " + folderInfo.name, Toast.LENGTH_SHORT).show();
@@ -167,5 +161,9 @@ public class GalleryMainActivity extends BaseActivity {
                 }
             }
         });
+    }
+
+    private void exit() {
+        finish();
     }
 }

@@ -7,13 +7,15 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.v4.content.CursorLoader;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.example.photome.Editor.EditorMainActivity;
+import com.example.photome.Gallery.adapters.FolderAdapter;
 import com.example.photome.Gallery.adapters.PhotoAdapter;
 import com.example.photome.Gallery.utils.FolderInfo;
 import com.example.photome.Gallery.utils.PhotoInfo;
@@ -76,28 +78,46 @@ public class GalleryPhotosActivity extends BaseActivity {
         final GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 4);
         mGalleryImageRecycler.setLayoutManager(gridLayoutManager);
 
-        mPhotoAdapter = new PhotoAdapter(mContext, photoInfoList);
         mGalleryImageRecycler.setAdapter(mPhotoAdapter);
 
+        mPhotoAdapter.setOnClickListener(new PhotoAdapter.OnClickListener() {
+            @Override
+            public void onClick(PhotoInfo photoInfo) {
+                if (photoInfo == null) {
+                    Toast.makeText(mContext, "PhotoInfo not found.", Toast.LENGTH_SHORT).show();
+                } else {
+                     Toast.makeText(mContext, "Going to Editor ...", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(mContext, EditorMainActivity.class);
+                    intent.putExtra("EXTRA_NAME", photoInfo.name);
+                    intent.putExtra("EXTRA_PATH", photoInfo.path);
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
     private void initPhotos(String folderPath) {
         Cursor cur;
         Uri uri;
-        final String[] IMAGE_PROJECTION = {
-                MediaStore.Images.Media.DATA,
-                MediaStore.Images.Media.DISPLAY_NAME,
-                MediaStore.Images.Media.DATE_ADDED,
-                MediaStore.Images.Media._ID,
-                MediaStore.Images.Media.SIZE,
-        };
 
         uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-        cur = getContentResolver().query(uri,
-                IMAGE_PROJECTION,
-                IMAGE_PROJECTION[0] + " like '%" + folderPath + "%'",
-                null,
-                IMAGE_PROJECTION[2] + " DESC");
+        if (folderPath.equals("null")) {
+            Log.d(TAG, "Cursor all images.");
+            cur = getContentResolver().query(uri,
+                    mConstants.IMAGE_PROJECTION,
+                    mConstants.IMAGE_PROJECTION[0] + " like '%" + "%'",
+                    null,
+                    mConstants.IMAGE_PROJECTION[2] + " DESC");
+        } else {
+            cur = getContentResolver().query(uri,
+                    mConstants.IMAGE_PROJECTION,
+                    mConstants.IMAGE_PROJECTION[0] + " like '%" + folderPath + "%'",
+                    null,
+                    mConstants.IMAGE_PROJECTION[2] + " DESC");
+        }
+
+        Log.d(TAG, "Cursor images: " + String.valueOf(cur.getCount()));
+
 
         if (cur != null) {
             int count = cur.getCount();
@@ -107,17 +127,18 @@ public class GalleryPhotosActivity extends BaseActivity {
                 cur.moveToFirst();
                 do {
 
-                    String path = cur.getString(cur.getColumnIndexOrThrow(IMAGE_PROJECTION[0]));
-                    String name = cur.getString(cur.getColumnIndexOrThrow(IMAGE_PROJECTION[1]));
-                    long dateTime = cur.getLong(cur.getColumnIndexOrThrow(IMAGE_PROJECTION[2]));
-                    int size = cur.getInt(cur.getColumnIndexOrThrow(IMAGE_PROJECTION[4]));
+                    String path = cur.getString(cur.getColumnIndexOrThrow(mConstants.IMAGE_PROJECTION[0]));
+                    String name = cur.getString(cur.getColumnIndexOrThrow(mConstants.IMAGE_PROJECTION[1]));
+                    long dateTime = cur.getLong(cur.getColumnIndexOrThrow(mConstants.IMAGE_PROJECTION[2]));
+                    int size = cur.getInt(cur.getColumnIndexOrThrow(mConstants.IMAGE_PROJECTION[4]));
                     PhotoInfo photoInfo = new PhotoInfo(path, name, dateTime);
 
+                    // filter size to show.
                     boolean showFlag = size > mConstants.showPhotoSize;
                     if (showFlag) {
                         tempPhotoList.add(photoInfo);
                     }
-                }while (cur.moveToNext());
+                } while (cur.moveToNext());
 
                 photoInfoList.clear();
                 photoInfoList.addAll(tempPhotoList);
@@ -129,7 +150,11 @@ public class GalleryPhotosActivity extends BaseActivity {
                 }
             }
         }
+
+        mPhotoAdapter = new PhotoAdapter(mContext, photoInfoList);
     }
 
-
+    private void exit() {
+        finish();
+    }
 }
