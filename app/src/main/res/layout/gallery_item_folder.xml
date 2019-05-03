@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gallery_main_background"
+    android:padding="5dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/gallery_image_cardview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        app:cardCornerRadius="4dp">
+
+        <ImageView
+            android:id="@+id/gallery_image_view"
+            android:layout_width="92dp"
+            android:layout_height="92dp"
+            android:background="@android:color/white"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/gallery_pick_photo" />
+
+    </android.support.v7.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/gallery_folder_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gallery_image_cardview"
+        android:layout_marginTop="5dp"
+        android:hint="@string/gallery_folder_name"
+        android:textColor="@color/gallery_text_black"
+        android:textColorHint="@color/gallery_text_black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/gallery_photo_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gallery_folder_name"
+        android:layout_marginTop="3dp"
+        android:hint="@string/gallery_photo_num"
+        android:textColor="@color/gallery_text_gray"
+        android:textColorHint="@color/gallery_text_gray"
+        android:textSize="14sp" />
+
+</RelativeLayout>

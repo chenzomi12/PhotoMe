@@ -3,39 +3,24 @@ package com.example.photome;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.design.bottomnavigation.LabelVisibilityMode;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatDelegate;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import com.example.photome.Editor.Constants;
-import com.example.photome.Gallery.FileBrowsActivity;
 import com.example.photome.Gallery.GalleryMainActivity;
 import com.example.photome.Others.AboutUsActivity;
 import com.example.photome.Others.FeedbackActivity;
 import com.example.photome.Others.SettingActivity;
 import com.example.photome.Others.TutorialActivity;
-import com.example.photome.UI.FilterRecyclerViewAdapter;
-import com.example.photome.UI.EffectRecyclerViewAdapter;
-
-
-import java.util.ArrayList;
-import java.util.Map;
 
 /**
  * 2019.5.2 create by zomi.

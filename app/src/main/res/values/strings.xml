@@ -86,6 +86,14 @@
         technologies. We are based in Indianapolis and funded by Elevate Venture,
         VisionTech and people that love us.</string>
 
-    <!--FEEDBACK-->
+    <!-- GALLERY -->
+    <string name="gallery_item_album">Album</string>
+    <string name="gallery_item_all_photos">All Photos</string>
+    <string name="gallery_item_moment">Moment</string>
+    <string name="gallery_item_favorite">Favorite</string>
+
+    <string name="gallery_folder_name">folder name</string>
+    <string name="gallery_photo_num">%d</string>
+    <string name="gallery_all_images">All Images</string>
 
 </resources>
