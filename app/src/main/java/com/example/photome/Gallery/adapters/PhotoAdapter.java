@@ -1,26 +1,68 @@
 package com.example.photome.Gallery.adapters;
 
+import android.app.Activity;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+
+import com.example.photome.Gallery.Loader.GlideImageLoader;
+import com.example.photome.Gallery.utils.PhotoInfo;
+import com.example.photome.R;
+import com.example.photome.Utils.ScreenUtils;
 
 import java.util.List;
 
-public class PhotoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> {
 
+    private final static String TAG = PhotoAdapter.class.getSimpleName();
 
-    @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int position) {
-        return null;
+    private Context mContext;
+    private Activity mActivity;
+    private LayoutInflater mLayoutInflater;
+    private List<PhotoInfo> photoInfoList;
+    private GlideImageLoader mImageLoader;
+
+    public PhotoAdapter(Context context, List<PhotoInfo> photoInfoList) {
+        mLayoutInflater = LayoutInflater.from(context);
+        this.mContext = context;
+        this.photoInfoList = photoInfoList;
+        mImageLoader = new GlideImageLoader();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        private ImageView photoImage;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            photoImage = (ImageView) itemView.findViewById(R.id.gallery_photo_image_view);
+        }
+
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int position) {
+        return new ViewHolder(mLayoutInflater.inflate(R.layout.gallery_item_photo, viewGroup, false));
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        mImageLoader.displayImage(mActivity,
+                mContext,
+                photoInfoList.get(position).path,
+                holder.photoImage,
+                ScreenUtils.getScreenWidth(mContext),
+                ScreenUtils.getScreenWidth(mContext));
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return photoInfoList.size();
     }
 }

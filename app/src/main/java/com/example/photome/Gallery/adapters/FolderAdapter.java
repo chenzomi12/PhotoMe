@@ -31,6 +31,7 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
     private LayoutInflater mLayoutInflater;
     private List<FolderInfo> mFolderList;
     private GlideImageLoader mImageLoader;
+    private OnClickListener onClickListener;
 
     public FolderAdapter(Activity activity, Context context, List<FolderInfo> result) {
         mLayoutInflater = LayoutInflater.from(context);
@@ -59,6 +60,15 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
                         ScreenUtils.getScreenWidth(mContext) / 5,
                         ScreenUtils.getScreenWidth(mContext) / 5);
             }
+
+            // active the holder clickable
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onClickListener.onClick(null);
+                }
+            });
+
             return;
         }
 
@@ -72,6 +82,14 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
                 holder.galleryFolderImage,
                 ScreenUtils.getScreenWidth(mContext) / 5,
                 ScreenUtils.getScreenWidth(mContext) / 5);
+
+        // active th holder clickable
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickListener.onClick(folderInfo);
+            }
+        });
     }
 
     @Override
@@ -107,5 +125,9 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
             }
         }
         return result;
+    }
+
+    public void setOnClickListener(OnClickListener onClickListener) {
+        this.onClickListener = onClickListener;
     }
 }

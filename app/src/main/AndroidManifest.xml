@@ -57,7 +57,14 @@
         <activity
             android:name=".Gallery.GalleryMainActivity"
             android:excludeFromRecents="true"
-            android:label="GalleryMain"
+            android:label="@string/gallery_item_album"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".Gallery.GalleryPhotosActivity"
+            android:excludeFromRecents="true"
+            android:label="GalleryPhotos"
+            android:parentActivityName=".Gallery.GalleryMainActivity"
             android:screenOrientation="portrait" />
 
     </application>

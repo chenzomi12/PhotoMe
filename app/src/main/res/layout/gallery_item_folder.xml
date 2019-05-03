@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/gallery_image_view"
-            android:layout_width="92dp"
-            android:layout_height="92dp"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:background="@android:color/white"
             android:contentDescription="@null"
             android:scaleType="centerCrop"
@@ -34,7 +34,7 @@
         android:hint="@string/gallery_folder_name"
         android:textColor="@color/gallery_text_black"
         android:textColorHint="@color/gallery_text_black"
-        android:textSize="16sp" />
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/gallery_photo_number"
@@ -45,6 +45,6 @@
         android:hint="@string/gallery_photo_num"
         android:textColor="@color/gallery_text_gray"
         android:textColorHint="@color/gallery_text_gray"
-        android:textSize="14sp" />
+        android:textSize="10sp" />
 
 </RelativeLayout>
