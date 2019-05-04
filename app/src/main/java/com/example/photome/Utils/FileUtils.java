@@ -1,4 +1,4 @@
-package com.example.photome.Utils;
+package com.example.photome.utils;
 
 import java.io.File;
 import java.io.FileOutputStream;

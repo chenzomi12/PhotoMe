@@ -17,11 +17,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.photome.Gallery.GalleryMainActivity;
-import com.example.photome.Others.AboutUsActivity;
-import com.example.photome.Others.FeedbackActivity;
-import com.example.photome.Others.SettingActivity;
-import com.example.photome.Others.TutorialActivity;
+import com.example.photome.gallery.GalleryMainActivity;
+import com.example.photome.about.AboutUsActivity;
+import com.example.photome.about.FeedbackActivity;
+import com.example.photome.about.SettingActivity;
+import com.example.photome.about.TutorialActivity;
 
 /**
  * 2019.5.2 create by zomi.

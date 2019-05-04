@@ -26,7 +26,7 @@
 
         <!--HELP TOOL-->
         <activity
-            android:name=".Others.SettingActivity"
+            android:name=".about.SettingActivity"
             android:label="@string/menu_setting"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait">
@@ -35,19 +35,19 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".Others.AboutUsActivity"
+            android:name=".about.AboutUsActivity"
             android:excludeFromRecents="true"
             android:label="@string/menu_about"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Others.FeedbackActivity"
+            android:name=".about.FeedbackActivity"
             android:excludeFromRecents="true"
             android:label="@string/menu_feedback"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Others.TutorialActivity"
+            android:name=".about.TutorialActivity"
             android:excludeFromRecents="true"
             android:label="@string/menu_tutorial"
             android:parentActivityName=".MainActivity"
@@ -55,21 +55,21 @@
 
         <!--GALLERY-->
         <activity
-            android:name=".Gallery.GalleryMainActivity"
+            android:name=".gallery.GalleryMainActivity"
             android:excludeFromRecents="true"
             android:label="@string/gallery_item_album"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".Gallery.GalleryPhotosActivity"
+            android:name=".gallery.GalleryPhotosActivity"
             android:excludeFromRecents="true"
             android:label="GalleryPhotos"
-            android:parentActivityName=".Gallery.GalleryMainActivity"
+            android:parentActivityName=".gallery.GalleryMainActivity"
             android:screenOrientation="portrait" />
 
         <!--EDITOR-->
         <activity
-            android:name=".Editor.EditorMainActivity"
+            android:name=".editor.EditorMainActivity"
             android:excludeFromRecents="true"
             android:label="@string/editor_name"
             android:screenOrientation="portrait" />

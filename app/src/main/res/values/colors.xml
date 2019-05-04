@@ -18,6 +18,7 @@
     <color name="gallery_main_background">#FFFFFF</color>
     <color name="gallery_text_black">#FF333333</color>
     <color name="gallery_text_gray">#FF999999</color>
+    <color name="gallery_photo_background">#535353</color>
 
 </resources>
 

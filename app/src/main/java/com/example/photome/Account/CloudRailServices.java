@@ -1,4 +1,4 @@
-package com.example.photome.Account;
+package com.example.photome.account;
 
 public class CloudRailServices {
 }

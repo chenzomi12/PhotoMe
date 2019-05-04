@@ -1,4 +1,4 @@
-package com.example.photome.Utils;
+package com.example.photome.utils;
 
 import android.app.Activity;
 import android.content.Context;
