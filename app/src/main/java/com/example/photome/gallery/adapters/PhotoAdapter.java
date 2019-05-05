@@ -27,6 +27,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> 
     private LayoutInflater mLayoutInflater;
     private List<PhotoInfo> photoInfoList;
     private GlideImageLoader mImageLoader;
+    private int mPosition;
 
     private OnClickListener onClickListener;
 
@@ -66,7 +67,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onClickListener.onClick(photoInfoList.get(position));
+                onClickListener.onClick(photoInfoList.get(position), position);
             }
         });
     }
@@ -78,7 +79,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> 
 
 
     public interface OnClickListener {
-        void onClick(PhotoInfo photoInfo);
+        void onClick(PhotoInfo photoInfo, int mPosition);
     }
 
     public void setOnClickListener(OnClickListener onClickListener) {

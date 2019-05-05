@@ -14,11 +14,10 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.photome.editor.EditorMainActivity;
+import com.example.photome.R;
 import com.example.photome.gallery.adapters.PhotoAdapter;
 import com.example.photome.gallery.info.FolderInfo;
 import com.example.photome.gallery.info.PhotoInfo;
-import com.example.photome.R;
 import com.example.photome.gallery.uitls.Constants;
 
 import java.util.ArrayList;
@@ -36,6 +35,7 @@ public class GalleryPhotosActivity extends BaseActivity {
     private Constants mConstants;
 
     private List<PhotoInfo> photoInfoList = new ArrayList<>();
+    private ArrayList<String> tempPhotoPathList = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,14 +82,17 @@ public class GalleryPhotosActivity extends BaseActivity {
 
         mPhotoAdapter.setOnClickListener(new PhotoAdapter.OnClickListener() {
             @Override
-            public void onClick(PhotoInfo photoInfo) {
+            public void onClick(PhotoInfo photoInfo, int position) {
                 if (photoInfo == null) {
                     Toast.makeText(mContext, "PhotoInfo not found.", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(mContext, "Going to Editor ...", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(mContext, EditorMainActivity.class);
-                    intent.putExtra("EXTRA_NAME", photoInfo.name);
-                    intent.putExtra("EXTRA_PATH", photoInfo.path);
+                    Toast.makeText(mContext, "Going to show img.", Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "dealing with image:" + photoInfo.path);
+                    Log.d(TAG, "dealing with image:" + photoInfo.name);
+
+                    Intent intent = new Intent(mContext, PhotoPreviewActivity.class);
+                    intent.putExtra("EXTRA_POSITION", position);
+                    intent.putStringArrayListExtra("EXTRA_PATHS", tempPhotoPathList);
                     startActivity(intent);
                 }
             }
@@ -144,7 +147,7 @@ public class GalleryPhotosActivity extends BaseActivity {
                 photoInfoList.addAll(tempPhotoList);
 
                 // give the photoInfoList to tempPhotoPathList
-                List<String> tempPhotoPathList = new ArrayList<>();
+                tempPhotoPathList.clear();
                 for (PhotoInfo photoInfo : photoInfoList) {
                     tempPhotoPathList.add(photoInfo.path);
                 }

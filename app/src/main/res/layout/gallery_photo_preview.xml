@@ -11,7 +11,7 @@
 
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/gallery_photos_toolbar"
+        android:id="@+id/gallery_photo_preview_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -23,8 +23,17 @@
     </android.support.v7.widget.Toolbar>
 
 
+    <ImageView
+        android:id="@+id/gallery_photo_preview"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@mipmap/gallery_pick_photo" />
+
     <android.support.v4.view.ViewPager
-        android:id="@+id/vp_pager"
+        android:id="@+id/gallery_vp_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

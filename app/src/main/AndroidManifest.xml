@@ -67,12 +67,22 @@
             android:parentActivityName=".gallery.GalleryMainActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".gallery.PhotoPreviewActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/editor_name"
+            android:parentActivityName=".gallery.GalleryPhotosActivity"
+            android:screenOrientation="portrait" />
+
         <!--EDITOR-->
         <activity
             android:name=".editor.EditorMainActivity"
             android:excludeFromRecents="true"
             android:label="@string/editor_name"
             android:screenOrientation="portrait" />
+
+
+
 
 
     </application>
