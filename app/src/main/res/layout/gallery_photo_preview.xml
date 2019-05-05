@@ -4,10 +4,11 @@
     android:id="@+id/ll_gallery_pick_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gallery_main_background"
+    android:background="@color/gallery_photo_background"
     android:clipToPadding="true"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
+
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/gallery_photos_toolbar"
@@ -21,25 +22,10 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <LinearLayout
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:baselineAligned="false"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:background="@color/gallery_photo_background">
-
-        <ImageView
-            android:id="@+id/gallery_photo_imageview"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="0dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@null"
-            android:scaleType="fitXY"
-            android:src="@mipmap/gallery_pick_photo" />
-
-    </LinearLayout>
-
+        android:layout_height="match_parent" />
 
 </LinearLayout>

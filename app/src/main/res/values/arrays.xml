@@ -52,5 +52,16 @@
         <item>4</item>
     </string-array>
 
+    <declare-styleable name="IntensifyImageView">
+        <attr name="scaleType" format="enum">
+            <enum name="fitAuto" value="1" />
+            <enum name="fitCenter" value="2" />
+        </attr>
+        <attr name="animateScaleType" format="boolean" />
+        <attr name="maximumScale" format="float" />
+        <attr name="minimumScale" format="float" />
+        <attr name="scale" format="float" />
+    </declare-styleable>
+
 
 </resources>

@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.example.photome.gallery.info.FolderInfo;
 import com.example.photome.gallery.loader.GlideImageLoader;
 import com.example.photome.R;
-import com.example.photome.Utils.ScreenUtils;
+import com.example.photome.utils.ScreenUtils;
 
 import java.util.List;
 
