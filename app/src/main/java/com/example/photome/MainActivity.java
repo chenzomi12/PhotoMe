@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.bottomnavigation.LabelVisibilityMode;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -36,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     Toolbar mToolbar;
-    BottomNavigationView mBottomBar;
     ImageView mImageView;
     Intent mIntent = null;
 
@@ -49,11 +46,6 @@ public class MainActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle(R.string.app_name);
-
-        // Bottom bar
-        mBottomBar = (BottomNavigationView) findViewById(R.id.bottom_navigation);
-        mBottomBar.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
-        mBottomBar.getMenu().setGroupEnabled(0, false);
 
         isStoragePermissionGranted();
 
@@ -77,15 +69,13 @@ public class MainActivity extends AppCompatActivity {
     //Add menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_toolbar, menu);
+        getMenuInflater().inflate(R.menu.main_toolbar, menu);
         return true;
     }
 
     //menu Click events
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-
         switch (item.getItemId()) {
             case R.id.item_setting:
                 mIntent = new Intent(this, SettingActivity.class);

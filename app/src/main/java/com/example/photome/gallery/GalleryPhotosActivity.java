@@ -86,7 +86,7 @@ public class GalleryPhotosActivity extends BaseActivity {
                 if (photoInfo == null) {
                     Toast.makeText(mContext, "PhotoInfo not found.", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(mContext, "Going to show img.", Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(mContext, "Going to show img.", Toast.LENGTH_SHORT).show();
                     Log.d(TAG, "dealing with image:" + photoInfo.path);
                     Log.d(TAG, "dealing with image:" + photoInfo.name);
 

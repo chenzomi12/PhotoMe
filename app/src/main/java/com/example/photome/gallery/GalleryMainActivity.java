@@ -32,7 +32,6 @@ public class GalleryMainActivity extends BaseActivity {
 
     private static final String TAG = GalleryMainActivity.class.getSimpleName();
 
-
     private RecyclerView mFolderList;
     private Context mContext;
     private Activity mActivity;
@@ -41,7 +40,6 @@ public class GalleryMainActivity extends BaseActivity {
 
     private boolean hasFolderScan = false;
     private List<FolderInfo> folderInfoList = new ArrayList<>(); // save local folder info
-    private List<PhotoInfo> photoInfoList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

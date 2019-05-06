@@ -65,6 +65,7 @@
         app:itemTextAppearanceActive="@style/MainBottomBarView.Active"
         app:itemTextAppearanceInactive="@style/MainBottomBarView"
         app:itemTextColor="@color/colorNavIcon"
-        app:menu="@menu/bottom_nav_menu" />
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/main_navigation" />
 
 </RelativeLayout>

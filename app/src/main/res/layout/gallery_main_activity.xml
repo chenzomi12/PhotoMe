@@ -36,7 +36,7 @@
 
 
     <android.support.design.widget.BottomNavigationView
-        android:id="@+id/gallery_main_bottom_bar"
+        android:id="@+id/gallery_main_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -48,6 +48,6 @@
         app:itemTextAppearanceInactive="@style/GalleryBottomBarView"
         app:itemTextColor="@color/colorNavIcon"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/gallery_bottom_bar" />
+        app:menu="@menu/gallery_navigation"/>
 
 </RelativeLayout>

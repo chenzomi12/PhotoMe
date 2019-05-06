@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/item_gallery_brush"
+        android:id="@+id/item_gallery_editor"
         android:enabled="true"
         android:icon="@drawable/ic_gallery_brush_24"
         android:title="Edit"

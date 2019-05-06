@@ -3,28 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_filter"
+        android:id="@+id/editorNavFilter"
         android:enabled="true"
         android:icon="@drawable/ic_bottom_filter_none_24"
         android:title="Filter"
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/action_photo_basic"
+        android:id="@+id/editorNavBaseTool"
         android:enabled="true"
         android:icon="@drawable/ic_bottom_panorama_24"
         android:title="Basic"
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/action_photo_advance"
+        android:id="@+id/editorNavAdvanceTool"
         android:enabled="true"
         android:icon="@drawable/ic_bottom_burst_mode_24"
         android:title="Advance"
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/action_save"
+        android:id="@+id/editorNavSave"
         android:enabled="true"
         android:icon="@drawable/ic_bottom_save_alt_24"
         android:title="Save"

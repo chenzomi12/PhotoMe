@@ -1,11 +1,12 @@
 package com.example.photome.Intensifyimage;
 
 import java.io.File;
+import java.io.InputStream;
 
 /**
  * Base ImageView Interface
  */
-public interface BaseImageView {
+public interface IntensifyImage {
 
     int DURATION_ZOOM = 300;
 
@@ -14,6 +15,8 @@ public interface BaseImageView {
 
     // For ImageLoader
     void setImage(File file);
+
+    void setImage(InputStream inputStream);
 
     // For Image base info
     int getImageWidth();
@@ -54,7 +57,7 @@ public interface BaseImageView {
 
     void nextScale(float focusX, float focusY);
 
-    void scaleEnd();
+    void home();
 
     // For normal Gesture
     void scroll(float distanceX, float distanceY);

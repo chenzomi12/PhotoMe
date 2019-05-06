@@ -6,8 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.photome.Intensifyimage.BaseImageView;
-import com.example.photome.Intensifyimage.Constants;
+import com.example.photome.Intensifyimage.IntensifyImage;
 import com.example.photome.Intensifyimage.IntensifyImageView;
 
 import java.io.IOException;
@@ -18,14 +17,15 @@ public class ImagePageAdapter extends PagerAdapter {
     private static String TAG = ImagePageAdapter.class.getSimpleName();
 
     private Context mContext;
-    private int mPosition;
     private ArrayList<String> mPhotoPathList = new ArrayList<String>();
 
 
-    public ImagePageAdapter(Context context, ArrayList<String> photoPathList, int position) {
+    public ImagePageAdapter(Context context, ArrayList<String> photoPathList) {
         mContext = context;
-        mPosition = position;
+
         mPhotoPathList = photoPathList;
+
+        Log.d(TAG, "ImagePageAdapter length:" + mPhotoPathList.size());
     }
 
     @Override
@@ -40,9 +40,10 @@ public class ImagePageAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
+        // TODO: the intensifyImageView is too slow in loading. can change to Glide?
         IntensifyImageView imageView = new IntensifyImageView(container.getContext());
-        imageView.setScaleType(BaseImageView.ScaleType.FIT_AUTO);
-        imageView.setImage(mPhotoPathList.get(mPosition));
+        imageView.setScaleType(IntensifyImage.ScaleType.FIT_AUTO);
+        imageView.setImage(mPhotoPathList.get(position));
         container.addView(imageView);
         return imageView;
     }
@@ -51,4 +52,8 @@ public class ImagePageAdapter extends PagerAdapter {
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((View) object);
     }
+
+
+
+
 }

@@ -9,9 +9,9 @@ import android.view.View;
 /**
  * Intensify should blind to ImageView.
  */
-public class IntensifyAttacher implements View.OnTouchListener {
+public class IntensifyImageAttacher implements View.OnTouchListener {
 
-    private static String TAG = IntensifyAttacher.class.getSimpleName();
+    private static String TAG = IntensifyImageAttacher.class.getSimpleName();
 
     private Context mContext;
 
@@ -19,7 +19,7 @@ public class IntensifyAttacher implements View.OnTouchListener {
     private GestureDetector mGestureDetector;
     private ScaleGestureDetector mScaleGestureDetector;
 
-    public IntensifyAttacher(IntensifyImageView intensifyView) {
+    public IntensifyImageAttacher(IntensifyImageView intensifyView) {
         mIntensifyView = intensifyView;
         mContext = intensifyView.getContext();
         mScaleGestureDetector = new ScaleGestureDetector(mContext, new OnScaleGestureAdapter());
@@ -45,7 +45,7 @@ public class IntensifyAttacher implements View.OnTouchListener {
 
         @Override
         public void onScaleEnd(ScaleGestureDetector detector) {
-            mIntensifyView.scaleEnd();
+            mIntensifyView.home();
         }
     }
 
