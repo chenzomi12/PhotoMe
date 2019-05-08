@@ -22,5 +22,8 @@
     <color name="gallery_nav_icon">#FFFFFF</color>
     <color name="gallery_nav_title">#FFFFFF</color>
 
+    <!--EDITOR-->
+    <color name="editor_preview_background">#535353</color>
+    <color name="editor_cardview_background">#F3F3F3</color>
 </resources>
 

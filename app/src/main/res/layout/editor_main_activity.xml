@@ -3,11 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="fill_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/editorToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -17,47 +16,98 @@
         android:minHeight="?attr/actionBarSize" />
 
     <LinearLayout
+        android:id="@+id/editorCenterLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        android:layout_marginBottom="56dp"
+        android:background="@android:color/background_dark"
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/editorImagePreviewLayout"
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="match_parent"
+            android:background="@color/editor_preview_background"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/filter_items"
+            <ImageView
+                android:id="@+id/editorImageView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/hello_text_view" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:padding="10dp"
+                android:scaleType="fitXY" />
         </LinearLayout>
 
-        <LinearLayout
+        <!--Filter Tool-->
+        <RelativeLayout
+            android:id="@+id/editorFilterRelative"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/editor_cardview_background"
+            android:orientation="horizontal"
+            android:visibility="invisible">
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/filter_recycle_view"
+                android:id="@+id/editorFilterRecycleView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"></android.support.v7.widget.RecyclerView>
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp"></android.support.v7.widget.RecyclerView>
+        </RelativeLayout>
 
-        <LinearLayout
+        <!--Base Tool-->
+        <RelativeLayout
+            android:id="@+id/editorBaseToolRelative"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/editor_cardview_background"
+            android:orientation="horizontal"
+            android:visibility="invisible">
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/effect_recycle_view"
+                android:id="@+id/editorBaseToolRecycleView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp"></android.support.v7.widget.RecyclerView>
 
+        </RelativeLayout>
 
-        </LinearLayout>
+        <!--Advance Tool-->
+        <RelativeLayout
+            android:id="@+id/editorAdvanceToolRelative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/editor_cardview_background"
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/editorAdvanceToolRecycleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp"></android.support.v7.widget.RecyclerView>
+
+        </RelativeLayout>
+
 
     </LinearLayout>
+
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/editor_main_navigation"

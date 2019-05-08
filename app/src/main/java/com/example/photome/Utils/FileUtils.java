@@ -20,8 +20,18 @@ public class FileUtils {
 
     public static final String FOLDER_NAME = "photoMe";
 
+    public static boolean isFileExist(String filePath) {
+        File file = new File(filePath);
+        if (file.exists()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /**
-     *Get storage file folder path
+     * Get storage file folder path
+     *
      * @return
      */
     public static File createFolders() {
@@ -45,22 +55,20 @@ public class FileUtils {
     }
 
     /**
-     *
      * @param extension
      * @return
      */
-    public static File genEditFile(String extension){
+    public static File genEditFile(String extension) {
         return FileUtils.getEmptyFile("phimpme"
                 + System.currentTimeMillis() + extension);
     }
 
     /**
-     *
      * @param path
      * @return
      */
-    public static String getExtension(String path){
-        String supportExt[] = {".jpg",".png",".jpeg",".bmp",".tiff"};
+    public static String getExtension(String path) {
+        String supportExt[] = {".jpg", ".png", ".jpeg", ".bmp", ".tiff"};
         String ext = path.substring(path.lastIndexOf(".")).toLowerCase();
 
         for (String itr : supportExt)
@@ -71,7 +79,6 @@ public class FileUtils {
     }
 
     /**
-     *
      * @param name
      * @return
      */
@@ -88,6 +95,7 @@ public class FileUtils {
 
     /**
      * Delete the specified file
+     *
      * @param path
      * @return
      */
@@ -149,7 +157,9 @@ public class FileUtils {
         return size;
     }
 
-    /** *Formatting Unit * * @param size * @return */
+    /**
+     * Formatting Unit * * @param size * @return
+     */
     public static String getFormatSize(double size) {
         double kiloByte = size / 1024d;
         int megaByte = (int) (kiloByte / 1024d);
@@ -157,7 +167,6 @@ public class FileUtils {
     }
 
     /**
-     *
      * @Description:
      */
     public static boolean isConnect(Context context) {

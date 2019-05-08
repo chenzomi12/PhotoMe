@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecyclerViewAdapter.ViewHolder> {
 
-    private static final String TAG = "FilterRecyclerViewAdapter";
+    private static final String TAG = FilterRecyclerViewAdapter.class.getSimpleName();
 
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
@@ -52,7 +52,7 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
 
         holder.myTextView.setText(mNames.get(position));
 
-        Glide.with(mContext).asBitmap().load(mImgPaths.get(position)).into(holder.myImageView);
+        Glide.with(mContext).load(mImgPaths.get(position)).into(holder.myImageView);
 
         // TODO: once on click the filter, the recording photo should change to the filter(position).
         holder.myImageView.setOnClickListener(new View.OnClickListener() {

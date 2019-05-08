@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.photome.editor.EditorMainActivity;
 import com.example.photome.gallery.GalleryMainActivity;
 import com.example.photome.about.AboutUsActivity;
 import com.example.photome.about.FeedbackActivity;
@@ -31,6 +32,7 @@ import com.example.photome.about.TutorialActivity;
  * TODO: change the emoji face to PhotoMe logo.
  */
 public class MainActivity extends AppCompatActivity {
+
     private static final String TAG = MainActivity.class.getSimpleName();
 
     Toolbar mToolbar;
@@ -55,8 +57,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "Going to Gallery ...", Toast.LENGTH_SHORT).show();
-                mIntent = new Intent(MainActivity.this, GalleryMainActivity.class);
-                startActivity(mIntent);
+
+                // Useful code. donot delete it.
+                // mIntent = new Intent(MainActivity.this, GalleryMainActivity.class);
+                // startActivity(mIntent);
+
+                // code for test the editor.
+                // For TESTING ImagePath: EXTRA_PATH/storage/emulated/0/DCIM/Camera/IMG_20190504_213522.jpg
+
+                Intent intent = new Intent(getApplicationContext(), EditorMainActivity.class);
+                intent.putExtra("EXTRA_PATH", "/storage/emulated/0/DCIM/Camera/IMG_20190504_213522.jpg");
+                startActivity(intent);
                 MainActivity.this.finish();
             }
         });

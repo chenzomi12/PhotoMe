@@ -3,8 +3,11 @@ package com.example.photome.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Point;
 import android.graphics.Rect;
+import android.os.Build;
 import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 
@@ -13,8 +16,7 @@ import android.view.WindowManager;
  */
 public class ScreenUtils {
 
-    private ScreenUtils() {
-        throw new UnsupportedOperationException("cannot be instantiated");
+    public ScreenUtils() {
     }
 
     /**
@@ -105,5 +107,16 @@ public class ScreenUtils {
         return bp;
 
     }
+
+    public int getHeightOfView(View contentview) {
+        contentview.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        return contentview.getMeasuredHeight();
+    }
+
+    public int getWidthOfView(View contentview) {
+        contentview.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        return contentview.getMeasuredWidth();
+    }
+
 
 }
