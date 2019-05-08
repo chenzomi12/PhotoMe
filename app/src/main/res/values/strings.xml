@@ -9,8 +9,9 @@
     <string name="menu_tutorial">Tutorial</string>
     <string name="menu_feedback">Feedback</string>
     <string name="menu_about">About Us</string>
+    <string name="menu_back">Back</string>
 
-    <!--buttom bar-->
+    <!--bottom bar-->
     <string name="nav1_filter">Filter</string>
     <string name="nav1_photo_basic">Basic</string>
     <string name="nav1_photo_advance">Advance</string>

@@ -2,6 +2,7 @@ package com.example.photome.editor;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,7 +10,9 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.TranslateAnimation;
@@ -20,10 +23,16 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.photome.R;
+import com.example.photome.about.AboutUsActivity;
+import com.example.photome.about.FeedbackActivity;
+import com.example.photome.about.SettingActivity;
+import com.example.photome.about.TutorialActivity;
 import com.example.photome.editor.adapter.EffectRecyclerViewAdapter;
 import com.example.photome.editor.adapter.FilterRecyclerViewAdapter;
 import com.example.photome.editor.filter.FilterRecycleViewData;
+import com.example.photome.editor.popupwindows.BackWindow;
 import com.example.photome.editor.utils.Constants;
+import com.example.photome.gallery.GalleryMainActivity;
 import com.example.photome.gallery.loader.GlideImageLoader;
 import com.example.photome.gallery.loader.ImageLoader;
 import com.example.photome.utils.FileUtils;
@@ -32,6 +41,9 @@ import com.example.photome.utils.ScreenUtils;
 import java.util.ArrayList;
 
 
+/**
+ * TODO: set animation while the layout change height and recycler view gone and visible.
+ */
 public class EditorMainActivity extends BaseActivity implements
         BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -42,6 +54,8 @@ public class EditorMainActivity extends BaseActivity implements
     private Activity mActivity;
 
     private String mImagePath;
+
+    Toolbar mToolbar;
 
     private BottomNavigationView mNavigationView;
 
@@ -61,6 +75,7 @@ public class EditorMainActivity extends BaseActivity implements
 
     private ArrayList<Integer> mAdvanceIconPaths = new ArrayList<>();
 
+    private BackWindow mBackWindow;
 
     private Constants mEditorConstants;
 
@@ -107,9 +122,58 @@ public class EditorMainActivity extends BaseActivity implements
         mBaseToolRecycleView = (RecyclerView) findViewById(R.id.editorBaseToolRecycleView);
         mAdvanceToolRecycleView = (RecyclerView) findViewById(R.id.editorAdvanceToolRecycleView);
 
+        // ToolBar
+        mToolbar = (Toolbar) findViewById(R.id.editorToolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle(R.string.app_name);
+
         // NavigationBar
         mNavigationView = (BottomNavigationView) findViewById(R.id.editor_main_navigation);
         mNavigationView.setOnNavigationItemSelectedListener(this);
+
+        // Windows
+        mBackWindow = new BackWindow(this.mContext, findViewById(R.id.editorMain));
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.editor_toolbar, menu);
+        return true;
+    }
+
+    //menu Click events
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.item_setting:
+                startActivity(new Intent(this, SettingActivity.class));
+                return true;
+            case R.id.item_tutorial:
+                startActivity(new Intent(this, TutorialActivity.class));
+                return true;
+            case R.id.item_feedback:
+                startActivity(new Intent(this, FeedbackActivity.class));
+                return true;
+            case R.id.item_about:
+                startActivity(new Intent(this, AboutUsActivity.class));
+                return true;
+            case R.id.editorItemInfo:
+                // show pop up windows image mate info.
+
+                return true;
+            case R.id.editorItemBackAll:
+                // show pop up windows back info.
+                mBackWindow.popUpShow();
+                return true;
+            case R.id.editorItemBatch:
+                startActivity(new Intent(this, GalleryMainActivity.class));
+                finish();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

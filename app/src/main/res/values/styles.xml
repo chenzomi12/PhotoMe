@@ -47,4 +47,10 @@
         <item name="android:textSize">10sp</item>
     </style>
 
+    <!--Editor Windows-->
+    <style name="animWindowTranslate">
+        <item name="android:windowEnterAnimation">@anim/window_translate_in</item>
+        <item name="android:windowExitAnimation">@anim/window_translate_out</item>
+    </style>
+
 </resources>
