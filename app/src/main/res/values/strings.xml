@@ -100,5 +100,17 @@
     <!--EDITOR-->
     <string name="editor_name">Editor</string>
 
+    <!--EDITOR TOOLBAR BACK ALL-->
+    <string name="editor_revoke">Revoke</string>
+    <string name="editor_redo">Redo</string>
+    <string name="editor_reduction">Reduction</string>
+    <string name="editor_view_modifications">View Modifications</string>
+
+    <!--EDITOR TOOLBAR MATE INFO-->
+    <string name="editor_date">Date</string>
+    <string name="editor_path">Path</string>
+    <string name="editor_type">Type</string>
+    <string name="editor_resolution">Resolution</string>
+    <string name="editor_shoot_info">Shoot</string>
 
 </resources>

@@ -2,22 +2,77 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FFBBFFBB"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:background="@android:color/white"
     android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="Hello My Window"
-        android:textSize="20sp" />
+        android:clickable="true">
 
-    <Button
-        android:id="@+id/button1"
+        <TextView
+            android:id="@+id/editorToolbarRevokeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_editor_toolbar_revoke"
+            android:drawablePadding="35dp"
+            android:padding="15dp"
+            android:text="@string/editor_revoke"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="Button"
-        android:textSize="20sp" />
+        android:clickable="true">
+
+        <TextView
+            android:id="@+id/editorToolbarRedoTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_editor_toolbar_redo"
+            android:drawablePadding="35dp"
+            android:padding="15dp"
+            android:text="@string/editor_redo"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true">
+
+        <TextView
+            android:id="@+id/editorToolbarReductionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_editor_toolbar_reduction"
+            android:drawablePadding="35dp"
+            android:padding="15dp"
+            android:text="@string/editor_reduction"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true">
+
+        <TextView
+            android:id="@+id/editorToolbarModifyTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_editor_toolbar_modify"
+            android:drawablePadding="35dp"
+            android:padding="15dp"
+            android:text="@string/editor_view_modifications"
+            android:textSize="20sp" />
+    </LinearLayout>
+
 
 </LinearLayout>
